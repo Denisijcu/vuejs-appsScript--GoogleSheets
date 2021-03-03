@@ -1,0 +1,61 @@
+<script>
+  
+  //Home Component
+  
+  Vue.component('home', {
+    props: {
+      data: Array,
+     
+
+    },
+
+     methods: {
+
+        showDetail: function(id){
+                               
+           this.item  = this.data.filter(i => i.itemID == id);
+           this.show = this.show ? false : true;
+           
+        },
+    },
+    
+    data: function(){
+       return {
+
+         item: new Item(),
+         show: false,
+
+       }
+    },
+    template: `
+     
+     <div class="w3-container w3-center">
+
+           <h1> Welcome Home</h1> 
+
+           <p>The Vuejs is very cool </p>
+
+           <hr>
+
+           <h1> Data from SpreadSheet </h1>
+      
+
+      <itemdetail v-bind:item="item"  v-bind:showDetail="showDetail" v-if="show"> </itemdetail>
+
+     
+      <div class="w3-card-4 w3-margin w3-padding" v-for="item in data" v-bind:key="item.itemID" v-if="!show">
+        <br>
+        <img  @click="showDetail(item.itemID)" v-bind:src="item.image" :alt="item.title">
+        <div class="w3-container w3-center">
+          <h3>{{item.title}}</h3>
+          <h3>{{item.price}}</h3>
+        </div>
+      </div>
+     
+     </div>
+    
+    `
+  })
+
+
+</script>

@@ -1,0 +1,40 @@
+    <script>
+
+    var app = new Vue({
+        el: '#app',
+        data: {
+        message: 'Hello Vue!',
+        seen: false,
+        btnLabel: 'Show',
+        myroute: 'home',
+        page: String,
+        data: Array,
+       
+      },
+      methods: {
+
+        route: function(event){
+                                this.myroute = event; 
+                                console.log(this.myroute);
+                              },
+
+        toggleLabel: function(){
+           this.seen = this.seen ? false : true; 
+           this.btnLabel = this.seen ? "Hide" : "Show";
+        },
+
+        getData: function(){
+              console.log(this.data);
+            return this.data;
+        }
+      },
+
+      created: function(){
+          this.data = db;
+      }
+
+    })
+  </script>
+
+
+

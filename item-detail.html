@@ -1,0 +1,42 @@
+<script>
+  
+  //Item-Detail Component
+  
+  Vue.component('itemdetail', {
+    props: {
+      item: new Item(),
+      showDetail: Function
+
+    },
+     methods: {      
+    },
+    
+    template: `
+     
+     <div class="w3-container w3-padding">
+
+          <h1> Detail </h1>
+
+        <div class="w3-card-4 w3-margin w3-col m6 l6">
+        <br>
+        <img  v-bind:src="item[0].image" :alt="item[0].title">
+        <div class="w3-container w3-center">
+          <h3>{{item[0].title}}</h3>
+          <h3>{{item[0].price}}</h3>
+          <p> {{item[0].description}}</p>
+        
+        </div>
+
+      
+      </div>
+
+        <button class="w3-button w3-black" @click="showDetail"> Back </button>
+
+   
+     </div>
+    
+    `    
+  })
+
+
+</script>

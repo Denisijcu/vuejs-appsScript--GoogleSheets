@@ -1,0 +1,43 @@
+<script>
+
+    let db = <?!= JSON.stringify(data)   ?>;
+
+</script>
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <style>
+       .w3-card{
+         width: 50% !important;
+       }
+    </style>
+  </head>
+  <body>
+  
+    <div class="w3-container w3-center" id="app">
+
+     <div class="w3-bar w3-light-grey">
+       <a v-on:click="route('home')" class="w3-bar-item w3-button">Home</a>
+       <a v-on:click="route('about')" class="w3-bar-item w3-button">About</a>
+      </div>
+
+     <mycontent v-bind:page="myroute" v-bind:data="data"> </mycontent>
+  
+    </div>
+
+
+  <!-- Register the components-->
+ 
+    <?!= include('home-component'); ?>
+    <?!= include('about-component'); ?> 
+    <?!= include('base-component'); ?>
+    <?!= include('m-item'); ?>
+    <?!= include('item-detail'); ?>
+    <?!= include('app-js'); ?>
+
+  </body>
+</html>

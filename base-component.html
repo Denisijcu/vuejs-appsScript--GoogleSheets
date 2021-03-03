@@ -1,0 +1,26 @@
+<script>
+  
+  //Components Container
+  
+  Vue.component('mycontent', {
+
+    props: {
+      page: String,
+      data: Array
+    },
+
+
+    template: `
+     
+     <div class="w3-container">
+
+          <home v-if="page=='home'" v-bind:data="data"> </home>
+          <about v-if="page=='about'"> </about>
+           
+     </div>
+    
+    `
+  })
+
+
+</script>
